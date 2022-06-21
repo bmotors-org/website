@@ -21,6 +21,15 @@ export function App() {
     () =>
       createTheme({
         palette: {mode: colorMode},
+        breakpoints: {
+          values: {
+            xs: 0,
+            sm: 600,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+          }
+        }
       }),
     [colorMode],
   );
@@ -29,7 +38,7 @@ export function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme/>
       <Container sx={{
-        marginTop: "1rem"
+        marginTop: "1rem",
       }}>
         <Navbar
           colorMode={colorMode}
