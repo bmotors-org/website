@@ -6,6 +6,8 @@ import Mail from "@mui/icons-material/Mail";
 import Apps from "@mui/icons-material/Apps";
 import {ColorModeToggler} from "./ColorModeToggler";
 import {routes} from "../data/routes";
+import {useTheme} from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export type propsT = {
   colorMode: 'light' | 'dark',
@@ -19,6 +21,10 @@ export function Navbar(props: propsT) {
 
   const {pathname} = useLocation()
 
+  const theme = useTheme()
+
+  const screenTablet = useMediaQuery(theme.breakpoints.up('sm'))
+
   const [selectedID, setSelectedID] = React.useState<string>(pathname)
 
   return (
@@ -26,40 +32,43 @@ export function Navbar(props: propsT) {
       padding: "0.75rem"
     }}>
       <Stack direction="row" sx={{
-        marginLeft: "auto"
+        marginLeft: "auto",
+        marginRight: () => screenTablet ? "0" : "auto"
       }}>
-        <ButtonGroup variant="text" size="large">
+        <ButtonGroup variant="outlined" size={screenTablet ? "large" : "medium"}>
           <Button
+            variant={selectedID == home || selectedID == about ?
+              "contained" : "outlined"}
             component={Link} to={about} endIcon={<People/>}
-            color={
-              selectedID == home || selectedID == about ?
-                "success" : "primary"}
             onClick={() => setSelectedID(about)}>
             About
           </Button>
           <Button
+            variant={selectedID == contact ?
+              "contained" : "outlined"}
             component={Link} to={contact} endIcon={<Mail/>}
-            color={selectedID == contact ? "success" : "primary"}
             onClick={() => setSelectedID(contact)}>
             Contact
           </Button>
           <Button
+            variant={selectedID == apps ?
+              "contained" : "outlined"}
             component={Link} to={apps} endIcon={<Apps/>}
-            color={selectedID == apps ? "success" : "primary"}
             onClick={() => setSelectedID(apps)}>
             Apps
           </Button>
         </ButtonGroup>
       </Stack>
 
-      <Box sx={{
-        marginLeft: 'auto'
-      }}>
-        <ColorModeToggler
-          colorMode={colorMode}
-          setColorMode={setColorMode}
-        />
-      </Box>
+      {screenTablet ?
+        <Box sx={{
+          marginLeft: 'auto'
+        }}>
+          <ColorModeToggler
+            colorMode={colorMode}
+            setColorMode={setColorMode}
+          />
+        </Box> : null}
     </Stack>
   );
 }

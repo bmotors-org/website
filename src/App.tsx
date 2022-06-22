@@ -8,6 +8,7 @@ import {Container, useMediaQuery} from "@mui/material";
 import {ThemeProvider, createTheme} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {Navbar} from "./components/Navbar";
+import {BottomNav} from "./components/BottomNav";
 import {AppRoutes} from "./components/App/Routes";
 
 export function App() {
@@ -34,16 +35,23 @@ export function App() {
     [colorMode],
   );
 
+  const screenTablet = useMediaQuery(theme.breakpoints.up('sm'))
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme/>
       <Container sx={{
         marginTop: "1rem",
       }}>
-        <Navbar
-          colorMode={colorMode}
-          setColorMode={setColorMode}/>
+        {screenTablet ?
+          <Navbar
+            colorMode={colorMode}
+            setColorMode={setColorMode}/> : null}
         <AppRoutes/>
+        {!screenTablet ?
+          <BottomNav
+            colorMode={colorMode}
+            setColorMode={setColorMode}/> : null}
       </Container>
     </ThemeProvider>
   );

@@ -1,27 +1,45 @@
 import {Box, Divider, Stack, Typography} from "@mui/material";
 import LocalShipping from "@mui/icons-material/LocalShipping";
 import React from "react";
+import {useTheme} from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export function Header() {
+  const theme = useTheme()
+
+  const screenTablet = useMediaQuery(theme.breakpoints.up('sm'))
+
   return (
     <Box sx={{
       textAlign: "center"
     }}>
-      <Typography variant="h1" component="h1" gutterBottom sx={{
+      <Typography
+        variant={
+          screenTablet ? "h1" : "h2"
+        }
+        gutterBottom sx={{
         marginTop: "1rem"
       }}>
         Bangla Motors
       </Typography>
       <Stack
-        direction="row"
+        direction={screenTablet ? "row" : "column"}
         justifyContent="center"
-        divider={<Divider orientation="vertical" flexItem />}
+        alignItems="center"
+        divider={
+          <Divider
+            orientation={screenTablet ? "vertical" : "horizontal"}
+            flexItem/>
+        }
         spacing={2}
         fontSize={48}>
-        <Typography variant="h4" component="h4" gutterBottom>
-          Truck rental service at your finger tips
+        <Typography
+          variant={
+            screenTablet ? "h4" : "h5"
+          } gutterBottom>
+          Truck rental service at your {!screenTablet? <br/>: null}finger tips
         </Typography>
-        <LocalShipping fontSize="inherit" color="primary" />
+        <LocalShipping fontSize="inherit" color="primary"/>
       </Stack>
     </Box>
   )
