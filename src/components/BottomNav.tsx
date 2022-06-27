@@ -1,24 +1,15 @@
 import React, {CSSProperties} from "react";
-import {Box, Paper, Stack} from "@mui/material";
+import {Paper, Stack} from "@mui/material";
 import People from "@mui/icons-material/People";
 import Mail from "@mui/icons-material/Mail";
 import Apps from "@mui/icons-material/Apps";
-import {ColorModeToggler} from "./ColorModeToggler";
 import {useTheme} from "@mui/material/styles";
 import {Link, useLocation} from "react-router-dom";
 import {routes} from "../data/routes";
+import {Settings} from "@mui/icons-material";
+const {home, about, contact, apps, settings} = routes
 
-export type propsT = {
-  colorMode: 'light' | 'dark',
-  setColorMode: React.Dispatch<React.SetStateAction<"light" | "dark">>
-}
-
-
-const {home, about, contact, apps} = routes
-
-export function BottomNav(props: propsT) {
-  const {colorMode, setColorMode} = props
-
+export function BottomNav() {
   const theme = useTheme()
 
   const {pathname} = useLocation()
@@ -38,17 +29,6 @@ export function BottomNav(props: propsT) {
     <Paper sx={{
       position: 'fixed', bottom: 0, left: 0, right: 0,
     }} elevation={2}>
-      <Box sx={{
-        position: "absolute",
-        bottom: "4.5rem",
-        right: "0rem"
-      }}>
-        <ColorModeToggler
-          colorMode={colorMode}
-          setColorMode={setColorMode}
-        />
-      </Box>
-
       <Stack sx={{
         display: "flex",
         flexDirection: "row",
@@ -88,6 +68,18 @@ export function BottomNav(props: propsT) {
           onClick={() => setSelected(apps)}>
           <Apps/>
           <span>Apps</span>
+        </Link>
+
+        <Link
+          to={settings} style={{
+          ...styles,
+          color: selected == settings ?
+            theme.palette.secondary.main :
+            theme.palette.primary.main
+        }}
+          onClick={() => setSelected(settings)}>
+          <Settings/>
+          <span>Settings</span>
         </Link>
       </Stack>
     </Paper>
