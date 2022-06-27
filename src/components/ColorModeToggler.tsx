@@ -15,18 +15,19 @@ export function ColorModeToggler(props: propsT) {
 
   return (
     <IconButton
+      size="small"
       onClick={() => setColorMode(colorMode == "light" ? "dark" : "light")}
       color="info">
       {colorMode === 'dark' ?
         <Brightness7
           sx={{
-            width: () => screenTablet ? "3rem" : "3rem",
-            height: () => screenTablet ? "3rem" : "3rem"
+            width: () => screenTablet ? "3rem" : "2rem",
+            height: () => screenTablet ? "3rem" : "2rem"
           }}/> :
         <Brightness4
           sx={{
-            width: () => screenTablet ? "3rem" : "3rem",
-            height: () => screenTablet ? "3rem" : "3rem"
+            width: () => screenTablet ? "3rem" : "2rem",
+            height: () => screenTablet ? "3rem" : "2rem"
           }}/>}
     </IconButton>
   );
