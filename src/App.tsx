@@ -9,7 +9,8 @@ import {ThemeProvider, createTheme} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {Navbar} from "./components/Navbar";
 import {BottomNav} from "./components/BottomNav";
-import {AppRoutes} from "./components/App/Routes";
+import {AppRoutes} from "./components/App/AppRoutes";
+import {MessengerChat} from "react-messenger-chat-plugin";
 
 export function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -47,11 +48,14 @@ export function App() {
           <Navbar
             colorMode={colorMode}
             setColorMode={setColorMode}/> : null}
-        <AppRoutes/>
-        {!screenTablet ?
-          <BottomNav
-            colorMode={colorMode}
-            setColorMode={setColorMode}/> : null}
+        <AppRoutes
+          colorMode={colorMode}
+          setColorMode={setColorMode}/>
+        {!screenTablet ? <BottomNav/> : null}
+        <MessengerChat
+          pageId="107782258650766"
+          themeColor={theme.palette.secondary.main} loggedInGreeting="Greetings!"
+          loggedOutGreeting="See you again!"/>
       </Container>
     </ThemeProvider>
   );
