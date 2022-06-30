@@ -47,14 +47,17 @@ export function App() {
           <Navbar
             colorMode={colorMode}
             setColorMode={setColorMode}/> : null}
+
         <AppRoutes
           colorMode={colorMode}
           setColorMode={setColorMode}/>
+
         {!screenTablet ? <BottomNav/> : null}
-        <MessengerChat
-          pageId="107782258650766"
-          themeColor={theme.palette.secondary.main} loggedInGreeting="Greetings!"
-          loggedOutGreeting="See you again!"/>
+
+        {
+          // @ts-ignore
+          <MessengerChat pageId="107782258650766"/>
+        }
       </Container>
     </ThemeProvider>
   );
