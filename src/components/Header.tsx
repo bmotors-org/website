@@ -15,7 +15,7 @@ export function Header() {
     }}>
       <Typography
         variant={
-          screenTablet ? "h1" : "h2"
+          screenTablet ? "h2" : "h3"
         }
         gutterBottom sx={{
         marginTop: "1rem"
@@ -35,9 +35,9 @@ export function Header() {
         fontSize={48}>
         <Typography
           variant={
-            screenTablet ? "h4" : "h5"
+            screenTablet ? "h4" : "subtitle1"
           } gutterBottom>
-          Truck rental service at your {!screenTablet? <br/>: null}finger tips
+          Truck rental service at your {!screenTablet? null: null}finger tips
         </Typography>
         <LocalShipping fontSize="inherit" color="primary"/>
       </Stack>
