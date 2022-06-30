@@ -14,7 +14,7 @@ export type propsT = {
   setColorMode: React.Dispatch<React.SetStateAction<"light" | "dark">>
 }
 
-const {home, about, contact, apps} = routes
+const {home, connect, apps} = routes
 
 export function Navbar(props: propsT) {
   const {colorMode, setColorMode} = props
@@ -37,17 +37,16 @@ export function Navbar(props: propsT) {
       }}>
         <ButtonGroup variant="outlined" size={screenTablet ? "large" : "medium"}>
           <Button
-            variant={selectedID == home || selectedID == about ?
-              "contained" : "outlined"}
-            component={Link} to={about} endIcon={<People/>}
-            onClick={() => setSelectedID(about)}>
+            variant={selectedID == home ? "contained" : "outlined"}
+            component={Link} to={home} endIcon={<People/>}
+            onClick={() => setSelectedID(home)}>
             About
           </Button>
           <Button
-            variant={selectedID == contact ?
+            variant={selectedID == connect ?
               "contained" : "outlined"}
-            component={Link} to={contact} endIcon={<Mail/>}
-            onClick={() => setSelectedID(contact)}>
+            component={Link} to={connect} endIcon={<Mail/>}
+            onClick={() => setSelectedID(connect)}>
             Contact
           </Button>
           <Button
