@@ -14,7 +14,7 @@ export function Settings(props: propsT) {
           padding: "0 1rem"
         }}>
         <Typography variant="body1">
-          Change Theme
+          Appearance
         </Typography>
         <ColorModeToggler
           colorMode={colorMode}
