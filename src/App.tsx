@@ -9,7 +9,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {Navbar} from "./components/Navbar";
 import {BottomNav} from "./components/BottomNav";
 import {AppRoutes} from "./components/App/AppRoutes";
-import {MessengerChat} from "react-messenger-chat-plugin";
 
 export function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -53,11 +52,6 @@ export function App() {
           setColorMode={setColorMode}/>
 
         {!screenTablet ? <BottomNav/> : null}
-
-        {
-          // @ts-ignore
-          <MessengerChat pageId="107782258650766"/>
-        }
       </Container>
     </ThemeProvider>
   );
