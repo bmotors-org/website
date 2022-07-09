@@ -8,6 +8,7 @@
     <meta charset="UTF-8"/>
     <title>Bangla Motors</title>
     <script>
+      <!--Segment analytics-->
       !function () {
         const analytics = window.analytics = window.analytics || [];
         if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
@@ -40,6 +41,16 @@
           analytics.page();
         }
       }();
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEJSEZBGM0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JEJSEZBGM0');
     </script>
 </head>
 
