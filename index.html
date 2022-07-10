@@ -7,47 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8"/>
     <title>Bangla Motors</title>
-    <script async>
-      <!--Segment analytics-->
-      !function () {
-        const analytics = window.analytics = window.analytics || [];
-        if (!analytics.initialize) if (analytics.invoked) window.console && console.error && console.error("Segment snippet included twice."); else {
-          analytics.invoked = !0;
-          analytics.methods = ["trackSubmit", "trackClick", "trackLink", "trackForm", "pageview", "identify", "reset", "group", "track", "ready", "alias", "debug", "page", "once", "off", "on", "addSourceMiddleware", "addIntegrationMiddleware", "setAnonymousId", "addDestinationMiddleware"];
-          analytics.factory = function (e) {
-            return function () {
-              const t = Array.prototype.slice.call(arguments);
-              t.unshift(e);
-              analytics.push(t);
-              return analytics
-            }
-          };
-          for (let e = 0; e < analytics.methods.length; e++) {
-            const key = analytics.methods[e];
-            analytics[key] = analytics.factory(key)
-          }
-          analytics.load = function (key, e) {
-            const t = document.createElement("script");
-            t.type = "text/javascript";
-            t.async = !0;
-            t.src = "https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";
-            const n = document.getElementsByTagName("script")[0];
-            n.parentNode.insertBefore(t, n);
-            analytics._loadOptions = e
-          };
-          analytics._writeKey = "3tOqCmwD7U6XkuLAFPWIm97kHwn1dNyq";
-          analytics.SNIPPET_VERSION = "4.15.3";
-          analytics.load("3tOqCmwD7U6XkuLAFPWIm97kHwn1dNyq");
-          analytics.page();
-        }
-      }();
-    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async
             src="https://www.googletagmanager.com/gtag/js?id=G-JEJSEZBGM0">
 
     </script>
-    <script defer>
+    <script async>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {
@@ -70,14 +35,14 @@
 <div id="fb-customer-chat" class="fb-customerchat">
 </div>
 
-<script defer>
+<script>
   const chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute("page_id", "107782258650766");
   chatbox.setAttribute("attribution", "biz_inbox");
 </script>
 
 <!-- Your SDK code -->
-<script defer>
+<script async>
   window.fbAsyncInit = function () {
     FB.init({
       xfbml: true,
