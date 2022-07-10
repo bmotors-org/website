@@ -23,6 +23,24 @@
 
       gtag('config', 'G-JEJSEZBGM0');
     </script>
+    <!-- Your SDK code -->
+    <script async>
+      window.fbAsyncInit = function () {
+        FB.init({
+          xfbml: true,
+          version: 'v14.0'
+        });
+      };
+
+      (function (d, s, id) {
+        let js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 </head>
 
 <body>
@@ -35,29 +53,10 @@
 <div id="fb-customer-chat" class="fb-customerchat">
 </div>
 
-<script>
+<script async>
   const chatbox = document.getElementById('fb-customer-chat');
   chatbox.setAttribute("page_id", "107782258650766");
   chatbox.setAttribute("attribution", "biz_inbox");
-</script>
-
-<!-- Your SDK code -->
-<script async>
-  window.fbAsyncInit = function () {
-    FB.init({
-      xfbml: true,
-      version: 'v14.0'
-    });
-  };
-
-  (function (d, s, id) {
-    let js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
 </script>
 
 <script type="module" src="/src/main.tsx"></script>
