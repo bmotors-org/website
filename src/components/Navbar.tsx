@@ -28,40 +28,44 @@ export function Navbar(props: propsT) {
   const [selectedID, setSelectedID] = React.useState<string>(pathname)
 
   return (
-    <Stack direction="row" alignItems="center" sx={{
-      padding: "0.75rem"
+    <Stack sx={{
+      padding: "1rem",
+      position: "relative"
     }}>
-      <Stack direction="row" sx={{
-        marginLeft: "auto",
-        marginRight: () => screenTablet ? "0" : "auto"
-      }}>
-        <ButtonGroup variant="outlined" size={screenTablet ? "large" : "medium"}>
-          <Button
-            variant={selectedID == home ? "contained" : "outlined"}
-            component={Link} to={home} endIcon={<People/>}
-            onClick={() => setSelectedID(home)}>
-            About
-          </Button>
-          <Button
-            variant={selectedID == connect ?
-              "contained" : "outlined"}
-            component={Link} to={connect} endIcon={<Mail/>}
-            onClick={() => setSelectedID(connect)}>
-            Contact
-          </Button>
-          <Button
-            variant={selectedID == apps ?
-              "contained" : "outlined"}
-            component={Link} to={apps} endIcon={<Apps/>}
-            onClick={() => setSelectedID(apps)}>
-            Apps
-          </Button>
-        </ButtonGroup>
-      </Stack>
+      <ButtonGroup
+        variant="outlined" size={screenTablet ? "large" : "medium"}
+        sx={{
+          margin: "auto"
+        }}>
+        <Button
+          variant={selectedID == home ? "contained" : "outlined"}
+          component={Link} to={home} endIcon={<People/>}
+          onClick={() => setSelectedID(home)}>
+          About
+        </Button>
+        <Button
+          variant={selectedID == connect ?
+            "contained" : "outlined"}
+          component={Link} to={connect} endIcon={<Mail/>}
+          onClick={() => setSelectedID(connect)}>
+          Contact
+        </Button>
+        <Button
+          variant={selectedID == apps ?
+            "contained" : "outlined"}
+          component={Link} to={apps} endIcon={<Apps/>}
+          onClick={() => setSelectedID(apps)}>
+          Apps
+        </Button>
+      </ButtonGroup>
 
       {screenTablet ?
         <Box sx={{
-          marginLeft: 'auto'
+          position: "absolute",
+          top: "50%",
+          right: 0,
+          transform: "translate(0, -50%)",
+          marginRight: "0.5rem"
         }}>
           <ColorModeToggler
             colorMode={colorMode}

@@ -19,9 +19,12 @@ export function ColorModeToggler(props: propsT) {
       alignItems: "center",
       cursor: "pointer",
     }} onClick={() => setColorMode(colorMode == "light" ? "dark" : "light")}>
-      <Typography>
-        {colorMode}
-      </Typography>
+      {/* Don't show text on bigger devices */}
+      {!screenTablet ?
+        <Typography>
+          {colorMode}
+        </Typography> : null}
+
       <IconButton
         size="small"
         color="info">
